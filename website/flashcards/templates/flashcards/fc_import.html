@@ -1,0 +1,23 @@
+{% extends 'flashcards/base.html' %}
+
+{% block title %}Import Flashcards{% endblock %}
+
+{% block nav %}
+	<li>
+		<a href="{% url 'flashcards:index' %}">Flashcards</a>
+	</li>
+	<li class="active">
+		<a href="{% url 'flashcards:fc_import' %}">Import</a>
+	</li>
+{% endblock %}
+
+{% block header %}<h1>Import Flashcards</h1>{% endblock %}
+
+{% block body %}
+	<form class="form-import-flashcards" action="/flashcards/fc_import/" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Import">
+	</form>
+{% endblock %}
+

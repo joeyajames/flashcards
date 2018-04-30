@@ -1,0 +1,26 @@
+{% extends 'flashcards/base.html' %}
+
+{% block title %}Flashcards Page{% endblock %}
+
+{% block nav %}
+	<li class="active">
+		<a href="{% url 'flashcards:index' %}">Flashcards</a>
+	</li>
+	<li>
+		<a href="{% url 'flashcards:fc_import' %}">Import</a>
+	</li>
+{% endblock %}
+
+{% block header %}<h1>Flashcards Page</h1>{% endblock %}
+
+{% block body %}
+	{% if all_flashcards %}
+		<ul>
+			{% for flashcard in all_flashcards %}
+			<li><a href="{% url 'flashcards:detail' flashcard.id %}">{{ flashcard.question }}</a></li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<h3>No Flashcards added yet.</h3>
+	{% endif %}
+{% endblock %}

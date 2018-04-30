@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Flashcards">
+    <meta name="author" content="Joe James">
+	<title>{% block title %}{% endblock %}</title>
+	{% load staticfiles %}
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'flashcards/css/style.css' %}" />
+</head>
+
+<body>	
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'flashcards:index' %}">Home</a>
+			</div>
+			<div class="collapse navbar-collapse" id="topNavBar">
+				<ul class="nav navbar-nav">
+					{% block nav %}{% endblock %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		{% block header %}
+		{% endblock %}	
+		<div class="jumbotron" id="jumbo">
+		{% block body %}
+		{% endblock %}	
+		</div>
+	</div>
+	
+	<footer class="footer">
+		<div class="container">
+			<span class="text-muted">
+			<a href="#">About</a>&nbsp;&nbsp;&nbsp;
+			<a href="/flashcards/fc_import/">Import</a>&nbsp;&nbsp;&nbsp;
+			<small class="d-block mb-3 text-muted">&copy; 2018 Joe James.</small>
+			</span>
+		</div>
+	</footer>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="{% static 'flashcards/js/flashcards.js' %}"></script>
+</body>
+</html>

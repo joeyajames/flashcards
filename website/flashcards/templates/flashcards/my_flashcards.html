@@ -1,0 +1,26 @@
+{% extends 'flashcards/base.html' %}
+
+{% block title %}My Flashcards{% endblock %}
+
+{% block nav %}
+	<li class="active">
+		<a href="{% url 'flashcards:index' %}">Flashcards</a>
+	</li>
+	<li>
+		<a href="{% url 'flashcards:fc_import' %}">Import</a>
+	</li>
+{% endblock %}
+
+{% block header %}<h1>My Flashcards</h1>{% endblock %}
+
+{% block body %}
+	<script type="text/javascript">
+		var FLASHCARDS = "{{ data }}";
+	</script>
+	<div class="question" id="question"></div>
+	<div class="answer" id="answer_a" onclick="getResult(this)"></div>
+	<div class="answer" id="answer_b" onclick="getResult(this)"></div>
+	<div class="answer" id="answer_c" onclick="getResult(this)"></div>
+	<div class="answer" id="answer_d" onclick="getResult(this)"></div>
+	
+{% endblock %}
