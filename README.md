@@ -1,3 +1,4 @@
 # flashcards
 Django Flashcards
-(c) 2018 Joe James
+
+Copyright (c) 2018 Joe James. All rights reserved.
